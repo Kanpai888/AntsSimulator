@@ -6,7 +6,7 @@ namespace AntsSimulator
     public partial class AntForm : Form
     {
         private WorldManager _worldManager;
-        private const int _numOfAnts = 100;
+        private const int _numOfAnts = 200;
         private const int _updateIntervalMills = 50;
 
         public AntForm()
@@ -17,9 +17,25 @@ namespace AntsSimulator
             WorldBounds bounds = new WorldBounds(drawingArea.Size.Width, drawingArea.Size.Height);
             MovementGenerator moveGenerator = new MovementGenerator(new Random());
             _worldManager = new WorldManager(bounds, moveGenerator);
+
             _worldManager.GenerateWorld(_numOfAnts);
+            drawingArea.MouseClick += OnDrawingAreaMouseClick;
 
             SetupDrawLoop();
+        }
+
+        private void OnDrawingAreaMouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                FoodSource source = new FoodSource(e.X, e.Y);
+                _worldManager.AddFoodSource(source);
+            }
+            else if(e.Button == MouseButtons.Right)
+            {
+                Nest nest = new Nest(e.X, e.Y);
+                _worldManager.AddNest(nest);
+            }
         }
 
         /// <summary>

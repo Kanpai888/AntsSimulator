@@ -53,8 +53,10 @@
     <Compile Include="AntForm.Designer.cs">
       <DependentUpon>AntForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FoodSource.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="MovementGenerator.cs" />
+    <Compile Include="Nest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimulationPanel.cs">
