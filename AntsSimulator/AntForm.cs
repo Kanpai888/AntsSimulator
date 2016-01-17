@@ -25,7 +25,7 @@ namespace AntsSimulator
             MovementGenerator moveGenerator = new MovementGenerator(new Random());
             _worldManager = new WorldManager(bounds, moveGenerator);
             _worldManager.GenerateWorld(_numOfAnts);
-            //this.DoubleBuffered = true;
+
             SetupDrawLoop();
         }
 
@@ -45,10 +45,7 @@ namespace AntsSimulator
         private void DrawingAreaPaint(object sender, PaintEventArgs e)
         {
             _worldManager.UpdateWorld();
-            using (Graphics graphics = drawingArea.CreateGraphics())
-            {
-                _worldManager.DrawWorld(graphics);
-            }
+            _worldManager.DrawWorld(e.Graphics);
         }
     }
 }

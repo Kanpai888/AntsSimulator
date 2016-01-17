@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.drawingArea = new System.Windows.Forms.Panel();
+            this.drawingArea = new SimulationPanel();
             this.SuspendLayout();
             // 
             // drawingArea
@@ -53,7 +53,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel drawingArea;
+        private SimulationPanel drawingArea;
     }
 }
 
