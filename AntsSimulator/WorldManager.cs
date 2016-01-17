@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AntsSimulator
 {
@@ -61,6 +58,10 @@ namespace AntsSimulator
             }
         }
 
+        /// <summary>
+        /// Create an <see cref="Ant"/> that is within the confines of the world boundries
+        /// </summary>
+        /// <returns></returns>
         private Ant CreateAnt()
         {
             int xPos = _random.Next(0, _worldBounds.XBound + 1);

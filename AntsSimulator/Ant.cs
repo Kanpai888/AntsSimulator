@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AntsSimulator
+﻿namespace AntsSimulator
 {
     public class Ant
     {
@@ -23,6 +17,9 @@ namespace AntsSimulator
             _moveGenerator = moveGenerator;
         }
 
+        /// <summary>
+        /// Move the ant in any direction by 1 step
+        /// </summary>
         public void UpdateMovement()
         {
             int nextXPos, nextYPos;

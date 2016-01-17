@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AntsSimulator
@@ -15,6 +7,7 @@ namespace AntsSimulator
     {
         private WorldManager _worldManager;
         private const int _numOfAnts = 100;
+        private const int _updateIntervalMills = 50;
 
         public AntForm()
         {
@@ -29,19 +22,32 @@ namespace AntsSimulator
             SetupDrawLoop();
         }
 
+        /// <summary>
+        /// Setups the timer that triggers the update loop
+        /// </summary>
         private void SetupDrawLoop()
         {
             Timer timer = new Timer();
-            timer.Interval = 50;
+            timer.Interval = _updateIntervalMills;
             timer.Tick += TimerTick;
             timer.Start();
         }
 
+        /// <summary>
+        /// Invalidate the panel to cause a redraw
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TimerTick(object sender, EventArgs e)
         {
             drawingArea.Invalidate();
         }
 
+        /// <summary>
+        /// Update the world and draw it
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DrawingAreaPaint(object sender, PaintEventArgs e)
         {
             _worldManager.UpdateWorld();
