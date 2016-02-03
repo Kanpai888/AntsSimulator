@@ -6,7 +6,7 @@ namespace AntsSimulator
     public partial class AntForm : Form
     {
         private WorldManager _worldManager;
-        private const int _numOfAnts = 200;
+        private const int _numOfAnts = 10000;
         private const int _updateIntervalMills = 50;
 
         public AntForm()

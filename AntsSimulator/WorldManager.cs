@@ -9,11 +9,17 @@ namespace AntsSimulator
         private const int _antWidth = 2;
         private const int _nestSize = 20;
         private const int _foodSourceSize = 20;
+        private const int _maxViewDistance = 5;
+
+        private readonly int _numXGridBlocks = 10;
+        private readonly int _numYGridBlocks = 10;
 
         private IList<Ant> _ants;
         private IList<FoodSource> _foodSources;
         private IList<Nest> _nests;
 
+        private WorldGrid _worldGrid;
+        
         private WorldBounds _worldBounds;
         private MovementGenerator _moveGenerator;
         private Random _random;
@@ -27,6 +33,8 @@ namespace AntsSimulator
             _ants = new List<Ant>();
             _foodSources = new List<FoodSource>();
             _nests = new List<Nest>();
+
+            _worldGrid = new WorldGrid(_numXGridBlocks, _numYGridBlocks, worldBounds, _maxViewDistance);
         }
 
         /// <summary>
@@ -35,8 +43,8 @@ namespace AntsSimulator
         /// <param name="numAnts"></param>
         public void GenerateWorld(int numAnts)
         {
+            // Generate the ants
             _ants.Clear();
-
             for(int i = 0; i < numAnts; i++)
             {
                 Ant ant = CreateAnt();
@@ -59,10 +67,15 @@ namespace AntsSimulator
         /// </summary>
         public void UpdateWorld()
         {
-            foreach(Ant ant in _ants)
+            _worldGrid.ClearBuckets();
+            foreach (Ant ant in _ants)
             {
                 ant.UpdateMovement();
+                _worldGrid.AddItem(ant);
             }
+            
+            // TODO Evaluate each individual buckets in the world grid to check 
+            // if there are any possible collisions.
         }
 
         /// <summary>

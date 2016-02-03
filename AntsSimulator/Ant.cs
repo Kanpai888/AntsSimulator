@@ -1,6 +1,10 @@
-﻿namespace AntsSimulator
+﻿
+namespace AntsSimulator
 {
-    public class Ant
+    /// <summary>
+    /// Represents an ant
+    /// </summary>
+    public class Ant : ILocatable
     {
         private MovementGenerator _moveGenerator;
         private WorldBounds _boundry;
@@ -12,7 +16,6 @@
         {
             XPos = startX;
             YPos = startY;
-
             _boundry = worldBounds;
             _moveGenerator = moveGenerator;
         }

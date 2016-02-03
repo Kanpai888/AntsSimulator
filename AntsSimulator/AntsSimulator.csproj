@@ -54,6 +54,8 @@
       <DependentUpon>AntForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FoodSource.cs" />
+    <Compile Include="GridBucket.cs" />
+    <Compile Include="ILocatable.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="MovementGenerator.cs" />
     <Compile Include="Nest.cs" />
@@ -63,6 +65,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WorldBounds.cs" />
+    <Compile Include="WorldGrid.cs" />
     <Compile Include="WorldManager.cs" />
     <EmbeddedResource Include="AntForm.resx">
       <DependentUpon>AntForm.cs</DependentUpon>

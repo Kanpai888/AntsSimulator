@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AntsSimulator
+﻿namespace AntsSimulator
 {
+    /// <summary>
+    /// Represent the set of possible movement directions
+    /// </summary>
     public enum Movement
     {
         NorthWest = 1,

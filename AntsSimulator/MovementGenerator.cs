@@ -2,6 +2,9 @@
 
 namespace AntsSimulator
 {
+    /// <summary>
+    /// Generates the next <see cref="Movement"/>
+    /// </summary>
     public class MovementGenerator
     {
         private readonly int _moveMinVal = 1;

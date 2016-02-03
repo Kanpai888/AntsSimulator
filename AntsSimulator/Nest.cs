@@ -1,6 +1,9 @@
 ﻿namespace AntsSimulator
 {
-    public class Nest
+    /// <summary>
+    /// Represents an ant's nest
+    /// </summary>
+    public class Nest : ILocatable
     {
         public int XPos { get; private set; }
         public int YPos { get; private set; }

@@ -1,6 +1,9 @@
 ﻿namespace AntsSimulator
 {
-    public class FoodSource
+    /// <summary>
+    /// Represents a food source
+    /// </summary>
+    public class FoodSource : ILocatable
     {
         public int XPos { get; private set; }
         public int YPos { get; private set; }
