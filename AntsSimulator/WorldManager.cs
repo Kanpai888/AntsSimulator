@@ -85,23 +85,30 @@ namespace AntsSimulator
         {
             using (Pen pen = new Pen(Color.IndianRed, 1))
             {
+                int xFoodOffset = _foodSourceSize / 2;
+                int yFoodOffset = _foodSourceSize / 2;
                 foreach (FoodSource foodSource in _foodSources)
                 {
-                    graphics.DrawRectangle(pen, foodSource.XPos, foodSource.YPos, _foodSourceSize, _foodSourceSize);
+                    graphics.DrawRectangle(pen, foodSource.XPos - xFoodOffset, foodSource.YPos - yFoodOffset, _foodSourceSize, _foodSourceSize);
                 }
             }
             using (Pen pen = new Pen(Color.ForestGreen, 1))
             {
+                // Rectangle are drawn from the edge, so we need to offset the values to make them appear even
+                int xNestOffset = _nestSize / 2;
+                int yNestOffset = _nestSize / 2;
                 foreach (Nest nest in _nests)
                 {
-                    graphics.DrawRectangle(pen, nest.XPos, nest.YPos, _nestSize, _nestSize);
+                    graphics.DrawRectangle(pen, nest.XPos - xNestOffset, nest.YPos - yNestOffset, _nestSize, _nestSize);
                 }
             }
             using (Pen pen = new Pen(Color.CornflowerBlue, 1))
             {
+                int xAntOffset = _antWidth / 2;
+                int yAntOffset = _antWidth / 2;
                 foreach (Ant ant in _ants)
                 {
-                    graphics.DrawRectangle(pen, ant.XPos, ant.YPos, _antWidth, _antWidth);
+                    graphics.DrawRectangle(pen, ant.XPos - xAntOffset, ant.YPos - yAntOffset, _antWidth, _antWidth);
                 }
             }
         }
