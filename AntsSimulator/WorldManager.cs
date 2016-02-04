@@ -9,7 +9,6 @@ namespace AntsSimulator
         private const int _antWidth = 2;
         private const int _nestSize = 20;
         private const int _foodSourceSize = 20;
-        private const int _maxViewDistance = 5;
 
         private readonly int _numXGridBlocks = 10;
         private readonly int _numYGridBlocks = 10;
@@ -34,7 +33,7 @@ namespace AntsSimulator
             _foodSources = new List<FoodSource>();
             _nests = new List<Nest>();
 
-            _worldGrid = new WorldGrid(_numXGridBlocks, _numYGridBlocks, worldBounds, _maxViewDistance);
+            _worldGrid = new WorldGrid(_numXGridBlocks, _numYGridBlocks, worldBounds);
         }
 
         /// <summary>
