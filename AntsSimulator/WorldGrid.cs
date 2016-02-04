@@ -13,9 +13,6 @@
         private readonly float _yBlockHeight;
         private GridBucket[,] _buckets;
 
-        // TODO Make WorldGrid implement IEnumberable<T> instead of expose through property?
-        public GridBucket[,] WorldBuckets { get { return _buckets; } }
-
         /// <summary>
         /// Constructor
         /// </summary>
